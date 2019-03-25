@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Blockwage
+Comment=Blockwage P2P Cryptocurrency
+Comment[fr]=Blockwage, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Blockwage, eşten eşe kriptografik sanal para birimi
+Exec=blockwage-qt %u
+Terminal=false
+Type=Application
+Icon=blockwage128
+MimeType=x-scheme-handler/blockwage;
+Categories=Office;Finance;

@@ -1,0 +1,26 @@
+[Unit]
+Description=Blockwage's distributed currency daemon
+After=network.target
+
+[Service]
+User=blockwage
+Group=blockwage
+
+Type=forking
+PIDFile=/var/lib/blockwaged/blockwaged.pid
+
+ExecStart=/usr/bin/blockwaged -daemon -pid=/var/lib/blockwaged/blockwaged.pid \
+          -conf=/etc/blockwage/blockwage.conf -datadir=/var/lib/blockwaged
+
+ExecStop=-/usr/bin/blockwage-cli -conf=/etc/blockwage/blockwage.conf \
+         -datadir=/var/lib/blockwaged stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
